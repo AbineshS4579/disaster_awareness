@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Disaster Management Awareness</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #003366, #66ccff);
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      background: #001f3f;
+      color: #fff;
+      padding: 20px;
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    section {
+      padding: 30px;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      padding: 12px 20px;
+      margin: 10px;
+      background: #ff9800;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e68900;
+    }
+    select, input {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 6px;
+      border: none;
+      width: 250px;
+    }
+    video {
+      margin: 20px 0;
+      border: 4px solid #fff;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+    }
+    .leaderboard {
+      margin-top: 20px;
+      background: #004080;
+      padding: 15px;
+      border-radius: 8px;
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+    }
+    .leaderboard h3 {
+      margin: 0;
+      padding: 10px;
+      background: #0073e6;
+      color: white;
+      border-radius: 6px;
+    }
+    img.logo {
+      width: 200px;
+      margin: 15px auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.4);
+    }
+    .link {
+      display: block;
+      margin: 10px;
+      color: #ffd700;
+      cursor: pointer;
+    }
+    .link:hover {
+      text-decoration: underline;
+    }
+    .form-box {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>🌍 Disaster Management Awareness Website</header>
+
+<!-- Page 1: Welcome -->
+<section id="welcome">
+  <img src="https://cdn-icons-png.flaticon.com/512/4151/4151022.png" class="logo" alt="Disaster Awareness">
+  <h2>Welcome to Disaster Management Awareness</h2>
+  <p>Learn through videos, quizzes & daily challenges to stay safe!</p>
+  <button onclick="showPage('selectPage')">Get Started</button>
+</section>
+
+<!-- Page 2: Select Country/State/District -->
+<section id="selectPage" class="hidden">
+  <h2>Choose Your Location</h2>
+  <select id="country" disabled>
+    <option>India</option>
+  </select>
+  <select id="state" disabled>
+    <option>Tamil Nadu</option>
+  </select>
+  <select id="district">
+    <option>Select District</option>
+    <option>Ariyalur</option>
+    <option>Chengalpattu</option>
+    <option>Chennai</option>
+    <option>Coimbatore</option>
+    <option>Cuddalore</option>
+    <option>Dharmapuri</option>
+    <option>Dindigul</option>
+    <option>Erode</option>
+    <option>Kallakurichi</option>
+    <option>Kancheepuram</option>
+    <option>Karur</option>
+    <option>Krishnagiri</option>
+    <option>Madurai</option>
+    <option>Nagapattinam</option>
+    <option>Namakkal</option>
+    <option>Nilgiris</option>
+    <option>Perambalur</option>
+    <option>Pudukkottai</option>
+    <option>Ramanathapuram</option>
+    <option>Ranipet</option>
+    <option>Salem</option>
+    <option>Sivagangai</option>
+    <option>Tenkasi</option>
+    <option>Thanjavur</option>
+    <option>Theni</option>
+    <option>Thiruvallur</option>
+    <option>Thiruvarur</option>
+    <option>Thoothukudi</option>
+    <option>Tiruchirappalli</option>
+    <option>Tirunelveli</option>
+    <option>Tirupattur</option>
+    <option>Tiruppur</option>
+    <option>Tiruvannamalai</option>
+    <option>Vellore</option>
+    <option>Viluppuram</option>
+    <option>Virudhunagar</option>
+  </select>
+  <br>
+  <button onclick="showPage('loginPage')">Next</button>
+</section>
+
+<!-- Page 3: Login -->
+<section id="loginPage" class="hidden">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Enter Username"><br>
+  <input type="password" id="password" placeholder="Enter Password"><br>
+  <label>Choose Class/Category:</label>
+  <select id="userClass">
+    <option>Primary</option>
+    <option>Secondary</option>
+    <option>Adult</option>
+  </select>
+  <br>
+  <button onclick="loginUser()">Login</button>
+  <span class="link" onclick="showPage('registerPage')">New User? Register</span>
+  <span class="link" onclick="alert('Password recovery feature coming soon!')">Forgot Password?</span>
+</section>
+
+<!-- Page 3B: Registration -->
+<section id="registerPage" class="hidden">
+  <h2>New User Registration</h2>
+  <div class="form-box">
+    <input type="text" id="regName" placeholder="Full Name"><br>
+    <input type="number" id="regAge" placeholder="Age"><br>
+    <input type="text" id="regSchool" placeholder="School Name"><br>
+    <input type="tel" id="regPhone" placeholder="Phone Number"><br>
+    <button onclick="registerUser()">Register</button>
+    <br>
+    <span class="link" onclick="showPage('loginPage')">Back to Login</span>
+  </div>
+</section>
+
+<!-- Page 4: Video + Quiz + Leaderboard -->
+<section id="learningPage" class="hidden">
+  <h2>📹 Today's Awareness Video</h2>
+  <video id="dailyVideo" controls>
+    <source src="" type="video/mp4">
+    Your browser does not support video.
+  </video>
+  <br>
+  <input type="file" id="videoUpload" accept="video/*" onchange="uploadVideo(event)">
+  <p><b>Note:</b> Upload daily awareness video. Previous day's video will vanish.</p>
+
+  <h3>📝 Quiz</h3>
+  <div id="quizContainer"></div>
+  <button onclick="submitQuiz()">Submit Quiz</button>
+
+  <div class="leaderboard">
+    <h3>🏆 Daily Leaderboard</h3>
+    <ul id="leaderboardList"></ul>
+  </div>
+</section>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll("section").forEach(s => s.classList.add("hidden"));
+    document.getElementById(id).classList.remove("hidden");
+  }
+
+  function loginUser() {
+    let username = document.getElementById("username").value.trim();
+    if (username === "") {
+      alert("Please enter a username");
+      return;
+    }
+    showPage('learningPage');
+    loadQuiz();
+  }
+
+  function registerUser() {
+    let name = document.getElementById("regName").value.trim();
+    let age = document.getElementById("regAge").value.trim();
+    let school = document.getElementById("regSchool").value.trim();
+    let phone = document.getElementById("regPhone").value.trim();
+
+    if (!name || !age || !school || !phone) {
+      alert("Please fill all fields");
+      return;
+    }
+    alert("Registered Successfully! Please login now.");
+    showPage('loginPage');
+  }
+
+  // Daily video upload
+  function uploadVideo(event) {
+    let file = event.target.files[0];
+    if (file) {
+      let url = URL.createObjectURL(file);
+      document.getElementById("dailyVideo").src = url;
+    }
+  }
+
+  // Quiz sets
+  const quizSets = {
+    "Primary": [
+      { q: "What should you do first in a flood?", a: "Move to higher ground" },
+      { q: "What number do we call for help in India?", a: "108" }
+    ],
+    "Secondary": [
+      { q: "What device detects earthquakes?", a: "Seismograph" },
+      { q: "Which gas is dangerous in fire?", a: "Carbon Monoxide" }
+    ],
+    "Adult": [
+      { q: "Which disaster plan document guides response?", a: "Disaster Management Plan" },
+      { q: "Which fire spreads fastest in forests?", a: "Crown fire" }
+    ]
+  };
+
+  let currentQuiz = [];
+  let userScore = 0;
+
+  function loadQuiz() {
+    let userClass = document.getElementById("userClass").value;
+    currentQuiz = quizSets[userClass] || [];
+    let quizDiv = document.getElementById("quizContainer");
+    quizDiv.innerHTML = "";
+    currentQuiz.forEach((q, i) => {
+      quizDiv.innerHTML += `
+        <p>${i+1}. ${q.q}</p>
+        <input type="text" id="answer${i}" placeholder="Your Answer"><br>
+      `;
+    });
+  }
+
+  function submitQuiz() {
+    userScore = 0;
+    currentQuiz.forEach((q, i) => {
+      let ans = document.getElementById("answer"+i).value.trim();
+      if (ans.toLowerCase() === q.a.toLowerCase()) {
+        userScore++;
+      }
+    });
+    updateLeaderboard();
+  }
+
+  function updateLeaderboard() {
+    let username = document.getElementById("username").value || "Guest";
+    let list = document.getElementById("leaderboardList");
+    let li = document.createElement("li");
+    li.textContent = username + " - " + userScore + "/" + currentQuiz.length;
+    list.appendChild(li);
+  }
+</script>
+
+</body>
+</html>
